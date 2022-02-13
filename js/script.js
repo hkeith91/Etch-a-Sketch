@@ -1,19 +1,32 @@
 const columnsContainer = document.querySelector("#columns-container");
-const rowNumber = 16;
+const gridSize = 16;
 
 GenerateGrid();
 
+function handleMouseEnter(){
+  this.classList.add("highlighted");
+};
+function handleClick(){
+  this.classList.add("highlighted");
+}
+
 function GenerateGrid() {
-  for (let i = 0; i < rowNumber; i++) {
+  for (let i = 0; i < gridSize; i++) {
     const rowContainer = document.createElement("div");
     columnsContainer.append(rowContainer);
 
-    for (let j = 0; j < rowNumber; j++) {
-      const gridSquare = document.createElement("div");
-      gridSquare.classList.add("grid-square");
+    for (let j = 0; j < gridSize; j++) {
+      const gridCell = document.createElement("div");
+      gridCell.classList.add("grid-square");
       rowContainer.classList.add("row-container");
-      rowContainer.append(gridSquare);
+      rowContainer.append(gridCell);
+      gridCell.addEventListener("mouseenter", handleMouseEnter);
+      // gridCell.addEventListener("click", handleClick);
+      gridCell.addEventListener("click", (e) =>{
+        console.log(e.target);
+      })
     }
   }
 }
+
 
