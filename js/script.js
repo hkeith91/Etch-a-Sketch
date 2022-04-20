@@ -5,27 +5,6 @@ let clicking = false;
 
 generateGrid();
 
-function addEvents() {
-  addEventListener("mouseover", (e) => {
-    mouseOver = true;
-    console.log("mouse over = " + mouseOver);
-  });
-  addEventListener("mouseout", (e) => {
-    mouseOver = false;
-    console.log("mouse over = " + mouseOver);
-  });
-  addEventListener("mousedown", (e) => {
-    clicking = true;
-    console.log("clicking = " + clicking);
-  });
-  addEventListener("mouseup", (e) => {
-    clicking = false;
-    console.log("clicking = " + clicking);
-  });
-}
-
-// function colorizeSquare()
-
 function generateGrid() {
   for (let i = 0; i < gridSize; i++) {
     const rowContainer = document.createElement("div");
@@ -36,29 +15,29 @@ function generateGrid() {
       gridSquare.classList.add("grid-square");
       rowContainer.classList.add("row-container");
       rowContainer.append(gridSquare);
-      
+
+      //events to highlight when clicked, or clicked and dragged
       gridSquare.addEventListener("mouseover", (e) => {
         mouseOver = true;
-        console.log("mouse over = " + mouseOver);
-      });
-      gridSquare.addEventListener("mouseout", (e) => {
-        mouseOver = false;
-        console.log("mouse over = " + mouseOver);
+        if (clicking && mouseOver) {
+          gridSquare.classList.add("highlighted");
+        }
       });
       gridSquare.addEventListener("mousedown", (e) => {
         clicking = true;
-        console.log("clicking = " + clicking);
+        if (clicking && mouseOver) {
+          gridSquare.classList.add("highlighted");
+        }
+      });
+      //events to stop highlighting when not !clicking
+      gridSquare.addEventListener("mouseout", (e) => {
+        mouseOver = false;
+        console.log("mouse over = " + mouseOver);
       });
       gridSquare.addEventListener("mouseup", (e) => {
         clicking = false;
         console.log("clicking = " + clicking);
       });
-      //gridSquare.addEventListener("mouseover", handleMouseOver);
-      // gridSquare.addEventListener("mouseenter", handleMouseEnter);
-      // gridCell.addEventListener("click", handleClick);
-      // gridSquare.addEventListener("click", (e) =>{
-      //   console.log(e.target);
-      // })
     }
   }
 }
