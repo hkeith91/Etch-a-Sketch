@@ -1,5 +1,8 @@
 const columnsContainer = document.querySelector("#columns-container");
-const gridSize = 16;
+const clearButton = document.querySelector("#clear-button");
+// let rowContainer;
+// let gridSquare;
+let gridSize = 16;
 let mouseOver = false;
 let clicking = false;
 
@@ -9,6 +12,8 @@ function generateGrid() {
   for (let i = 0; i < gridSize; i++) {
     const rowContainer = document.createElement("div");
     columnsContainer.append(rowContainer);
+    // let columnArr = [];
+    // columnArr.push(rowContainer);
 
     for (let j = 0; j < gridSize; j++) {
       const gridSquare = document.createElement("div");
@@ -25,6 +30,7 @@ function generateGrid() {
       });
       gridSquare.addEventListener("mousedown", (e) => {
         clicking = true;
+
         if (clicking && mouseOver) {
           gridSquare.classList.add("highlighted");
         }
@@ -32,12 +38,20 @@ function generateGrid() {
       //events to stop highlighting when not !clicking
       gridSquare.addEventListener("mouseout", (e) => {
         mouseOver = false;
-        console.log("mouse over = " + mouseOver);
       });
       gridSquare.addEventListener("mouseup", (e) => {
         clicking = false;
-        console.log("clicking = " + clicking);
       });
     }
   }
 }
+
+// function clearGrid(){
+//   columnsContainer.forEach(rowContainer => {
+//     rowContainer.forEach(gridSquare => {
+//       if (gridSquare.classList.contains("highlighted")){
+//         gridSquare.classList.remove("highlighted");
+//       }
+//     });
+//   });
+// }
