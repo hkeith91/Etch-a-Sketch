@@ -54,8 +54,15 @@ function clearCanvas(){
   });
 }
 
-function createNewCanvas(){
+function destroyGrid(){
+  let currentGrid = document.querySelectorAll(".grid-square");
+  currentGrid.forEach(element => {
+    element.remove();
+  });
+}
+
+function createNewGrid(){
   gridSize = gridRangeSlider.value;
-  clearCanvas();
+  destroyGrid();
   generateGrid();
 }
