@@ -1,9 +1,19 @@
 body {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
+}
+
+#settings-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border: 5px solid blue;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 2.5px;
+  height: 750px;
 }
 
 #columns-container {
@@ -11,7 +21,7 @@ body {
   flex-direction: column;
   width: 750px;
   height: 750px;
-  /* padding: 0; */
+  margin: 2.5px;
 }
 
 .row-container {
@@ -25,7 +35,7 @@ body {
   max-height: 44.833px;
   width: calc(750px / 16);
   height: calc(750px / 16);
-  border: 1px solid blue;
+  border: .5px solid blue;
 }
 
 .highlighted {

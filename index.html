@@ -11,9 +11,16 @@
 </head>
 
 <body>
+    <div id="settings-container">
+        <input type="button" id="clear" onclick="clearGrid()" value="CLEAR!">
+        
+        <section>
+            <input type="range" id="grid-size" name="grid-size" min="8" max="100">
+            <label for="grid-size">Grid Size</label>
+        </section>
+    </div>
     <div id="columns-container">
     </div>
-    <input type="button" id="clear" onclick="clearGrid()" value="CLEAR!">
 </body>
 
 </html>
