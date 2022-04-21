@@ -1,3 +1,8 @@
+:root{
+  --grid-container-size: 750;
+
+}
+
 body {
   display: flex;
   justify-content: center;
@@ -16,6 +21,15 @@ body {
   height: 750px;
 }
 
+#grid-size, #grid-size-label{
+  display: inline;
+}
+
+#create-button{
+  display: block;
+}
+
+
 #columns-container {
   display: flex;
   flex-direction: column;
@@ -31,7 +45,6 @@ body {
 .grid-square {
   flex: 0 1 auto;
   min-width: 0;
-  min-height: 0;
   max-height: 44.833px;
   width: calc(750px / 16);
   height: calc(750px / 16);

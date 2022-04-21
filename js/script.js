@@ -1,12 +1,15 @@
 const columnsContainer = document.querySelector("#columns-container");
 const clearButton = document.querySelector("#clear-button");
+const gridRangeSlider = document.querySelector("#grid-size");
 let gridSize = 16;
 let mouseOver = false;
 let clicking = false;
 
 generateGrid();
+console.log(gridRangeSlider.value);
 
 function generateGrid() {
+  gridRangeSlider.value = gridSize;
   for (let i = 0; i < gridSize; i++) {
     const rowContainer = document.createElement("div");
     columnsContainer.append(rowContainer);
@@ -42,11 +45,17 @@ function generateGrid() {
   }
 }
 
-function clearGrid(){
+function clearCanvas(){
   let currentCanvas = document.querySelectorAll(".grid-square");
   currentCanvas.forEach(square => {
     if (square.classList.contains("highlighted")){
       square.classList.remove("highlighted");
     }
   });
+}
+
+function createNewCanvas(){
+  gridSize = gridRangeSlider.value;
+  clearCanvas();
+  generateGrid();
 }
