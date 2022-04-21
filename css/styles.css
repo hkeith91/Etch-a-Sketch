@@ -1,5 +1,8 @@
 :root{
-  --grid-container-size: 750;
+  --grid-container-size: 750px;
+  --grid-size: 16;
+  /* --square-width: calc(var(--grid-container-size)/var(--grid-size));
+  --square-width: calc(var(--grid-container-size)/var(--grid-size)); */
 
 }
 
@@ -33,8 +36,11 @@ body {
 #columns-container {
   display: flex;
   flex-direction: column;
-  width: 750px;
-  height: 750px;
+  min-width: 0;
+  width: var(--grid-container-size);
+  height: var(--grid-container-size);
+  max-width: var(--grid-container-size);
+  max-height: var(--grid-container-size);
   margin: 2.5px;
 }
 
@@ -46,8 +52,8 @@ body {
   flex: 0 1 auto;
   min-width: 0;
   max-height: 44.833px;
-  width: calc(750px / 16);
-  height: calc(750px / 16);
+  width: calc(var(--grid-container-size) / var(--grid-size));
+  height: calc(var(--grid-container-size) / var(--grid-size));
   border: .5px solid blue;
 }
 
