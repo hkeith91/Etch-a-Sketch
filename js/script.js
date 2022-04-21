@@ -43,9 +43,7 @@ function generateGrid() {
 }
 
 function clearGrid(){
-  console.log("CLEAR GRID!!!")
-
-  let currentCanvas = document.querySelectorAll("grid-square");
+  let currentCanvas = document.querySelectorAll(".grid-square");
   currentCanvas.forEach(square => {
     if (square.classList.contains("highlighted")){
       square.classList.remove("highlighted");
