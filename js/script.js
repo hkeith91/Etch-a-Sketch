@@ -1,13 +1,14 @@
 const columnsContainer = document.querySelector("#columns-container");
 const clearButton = document.querySelector("#clear-button");
 const gridRangeSlider = document.querySelector("#grid-size");
+// let markerMode = document.querySelector(".marker");
 let root = document.documentElement;
 let gridSize = 16;
 let mouseOver = false;
 let clicking = false;
 
 generateGrid();
-console.log(root);
+console.log(markerMode);
 
 function generateGrid() {
   gridRangeSlider.value = gridSize;

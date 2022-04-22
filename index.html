@@ -19,16 +19,21 @@
             <label for="grid-size" id="grid-size-label">Grid Size</label>
             <input type="button" id="create-button" onclick="createNewGrid()" value="CREATE!">
         </section>
-
-        <section id="rb-mode-container">
-            <label for="rb-mode" id="rb-mode-label">Rainbow Mode</label>
-            <input type="radio" id="rb-mode" name="rb-mode"> 
-        </section>
-
-        <section id="pencil-mode-container">
-            <label for="pencil-mode">Pencil Mode</label>
-            <input type="radio">
-        </section>
+        <field id="marker-mode">
+            <section id="default-mode">
+                <label for="default-mode">Default Mode</label>
+                <input type="radio" id="default-mode" name="marker">
+            </section>
+            <section id="rb-mode-container">
+                <label for="rb-mode" id="rb-mode-label">Rainbow Mode</label>
+                <input type="radio" id="rb-mode" name="marker"> 
+            </section>
+            <section id="pencil-mode-container">
+                <label for="pencil-mode" id="pencil-mode-label">Pencil Mode</label>
+                <input type="radio" id="pencil-mode" name="marker">
+            </section>
+        </field>
+        
     </div>
     <div id="columns-container">
     </div>
