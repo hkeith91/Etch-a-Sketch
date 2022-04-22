@@ -1,5 +1,5 @@
 :root{
-  --grid-container-size: 750px;
+  --grid-container-size: 960px;
   --grid-size: 16;
   /* --square-width: calc(var(--grid-container-size)/var(--grid-size));
   --square-width: calc(var(--grid-container-size)/var(--grid-size)); */
@@ -21,7 +21,7 @@ body {
   border-radius: 5px;
   padding: 5px;
   margin: 2.5px;
-  height: 750px;
+  height: var(--grid-container-size);
 }
 
 #grid-size, #grid-size-label{
@@ -41,6 +41,7 @@ body {
   height: var(--grid-container-size);
   max-width: var(--grid-container-size);
   max-height: var(--grid-container-size);
+  border: 5px solid blue;
   margin: 2.5px;
 }
 
@@ -54,7 +55,7 @@ body {
   /* max-height: 44.833px; */
   width: calc(var(--grid-container-size) / var(--grid-size));
   height: calc(var(--grid-container-size) / var(--grid-size));
-  border: .5px solid blue;
+  /* border: .5px solid blue; */
 }
 
 .highlighted {
