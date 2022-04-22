@@ -1,17 +1,18 @@
 const columnsContainer = document.querySelector("#columns-container");
 const clearButton = document.querySelector("#clear-button");
 const gridRangeSlider = document.querySelector("#grid-size");
-const root = getComputedStyle(":root");
+let root = document.documentElement;
 let gridSize = 16;
 let mouseOver = false;
 let clicking = false;
 
 generateGrid();
 console.log(root);
-root.style
 
 function generateGrid() {
   gridRangeSlider.value = gridSize;
+  root.style.setProperty("--grid-size", gridRangeSlider.value);
+
   for (let i = 0; i < gridSize; i++) {
     const rowContainer = document.createElement("div");
     columnsContainer.append(rowContainer);
@@ -56,14 +57,19 @@ function clearCanvas(){
 }
 
 function destroyGrid(){
-  let currentGrid = document.querySelectorAll(".grid-square");
-  currentGrid.forEach(element => {
+  let currentSquares = document.querySelectorAll(".grid-square");
+  currentSquares.forEach(element => {
     element.remove();
   });
+  let currentRows = document.querySelectorAll(".row-container");
+  currentRows.forEach(element => {
+    element.remove();
+  })
 }
 
 function createNewGrid(){
   gridSize = gridRangeSlider.value;
   destroyGrid();
   generateGrid();
+  
 }
