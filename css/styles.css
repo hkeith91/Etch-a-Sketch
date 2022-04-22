@@ -53,7 +53,7 @@ body {
   flex: 0 1 auto;
   min-width: 0;
   /* max-height: 44.833px; */
-  width: calc(var(--grid-container-size) / var(--grid-size));
+  width: calc(var(--grid-container-size) / var(--grid-size));x
   height: calc(var(--grid-container-size) / var(--grid-size));
   /* border: .5px solid blue; */
 }
