@@ -9,7 +9,6 @@ let mouseOver = false;
 let clicking = false;
 
 generateGrid();
-changeMarker();
 
 function generateGrid() {
   gridRangeSlider.value = gridSize;
@@ -57,25 +56,19 @@ function createNewGrid() {
 }
 
 function marker(element) {
-  defaultMarker(element);
-  markerMode.addEventListener("change", function () {
-    if (document.getElementById("default-mode").checked) defaultMarker();
-    if (document.getElementById("rb-mode").checked) rainbowMarker();
-    if (document.getElementById("pencil-mode").checked) pencilMarker();
-  });
-  // defaultMarker(element);
-}
-
-function changeMarker(){
-  markerMode.addEventListener("change", function () {
-    if (document.getElementById("default-mode").checked) defaultMarker();
-    if (document.getElementById("rb-mode").checked) rainbowMarker();
-    if (document.getElementById("pencil-mode").checked) pencilMarker();
-  });
+  if (document.getElementById("default-mode").checked) defaultMarker(element);
+  if (document.getElementById("rb-mode").checked) rainbowMarker(element);
+  if (document.getElementById("pencil-mode").checked) pencilMarker(element);
+  if (document.getElementById("rave-mode").checked) raveMarker(element);
+  // raveMarker(element);
+  // markerMode.addEventListener("change", function () {
+  //   if (document.getElementById("default-mode").checked) defaultMarker();
+  //   if (document.getElementById("rb-mode").checked) raveMarker();
+  //   if (document.getElementById("pencil-mode").checked) pencilMarker();
+  // });
 }
 
 function addEventListeners(element) {
-  console.log("adding event listeneres")
   //events to highlight when clicked, or clicked and dragged
   element.addEventListener("mouseover", (e) => {
     mouseOver = true;
@@ -97,17 +90,23 @@ function addEventListeners(element) {
     clicking = false;
   });
 }
-function defaultMarker(element) {
-  if(root.style.getPropertyValue("--highlighted-color") !== slategray);
-    root.style.setProperty("--highlighted-color", slategray);
-  element.classList.add("highlighted");
 
+function defaultMarker(element) {
+  if (root.style.getPropertyValue("--highlighted-color") !== slategray);
+  root.style.setProperty("--highlighted-color", slategray);
+  element.classList.add("highlighted");
 }
 
-function rainbowMarker(element) {
-  root;
+function rainbowMarker() {
+  alert("rainbow!");
 }
 
 function pencilMarker(element) {
   alert("pencil!");
+}
+
+function raveMarker(element) {
+  let randomColor = Math.floor(Math.random() * 16777215).toString(16);
+  root.style.setProperty("--highlighted-color", "#" + randomColor);
+  element.classList.add("highlighted");
 }
