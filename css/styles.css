@@ -1,8 +1,7 @@
 :root{
   --grid-container-size: 960px;
   --grid-size: 16;
-  /* --square-width: calc(var(--grid-container-size)/var(--grid-size));
-  --square-width: calc(var(--grid-container-size)/var(--grid-size)); */
+  --highlighted-color: slategray;
 
 }
 
@@ -61,5 +60,5 @@ body {
 }
 
 .highlighted {
-  background-color: slategray;
+  background-color: var(--highlighted-color);
 }

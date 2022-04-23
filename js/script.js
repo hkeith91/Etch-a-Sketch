@@ -2,7 +2,8 @@ const columnsContainer = document.querySelector("#columns-container");
 const clearButton = document.querySelector("#clear-button");
 const gridRangeSlider = document.querySelector("#grid-size");
 const markerMode = document.getElementById("marker-mode");
-let root = document.documentElement;
+const root = document.documentElement;
+const slategray = "#" + 708090;
 let gridSize = 16;
 let mouseOver = false;
 let clicking = false;
@@ -24,7 +25,7 @@ function generateGrid() {
       rowContainer.classList.add("row-container");
       rowContainer.append(gridSquare);
 
-      defaultMarker(gridSquare);
+      addEventListeners(gridSquare);
     }
   }
 }
@@ -55,26 +56,37 @@ function createNewGrid() {
   generateGrid();
 }
 
-function changeMarker() {
+function marker(element) {
+  defaultMarker(element);
   markerMode.addEventListener("change", function () {
-    if (document.getElementById("default-mode").checked) defaultMarker(element);
+    if (document.getElementById("default-mode").checked) defaultMarker();
+    if (document.getElementById("rb-mode").checked) rainbowMarker();
+    if (document.getElementById("pencil-mode").checked) pencilMarker();
+  });
+  // defaultMarker(element);
+}
+
+function changeMarker(){
+  markerMode.addEventListener("change", function () {
+    if (document.getElementById("default-mode").checked) defaultMarker();
     if (document.getElementById("rb-mode").checked) rainbowMarker();
     if (document.getElementById("pencil-mode").checked) pencilMarker();
   });
 }
 
-function defaultMarker(element) {
+function addEventListeners(element) {
+  console.log("adding event listeneres")
   //events to highlight when clicked, or clicked and dragged
   element.addEventListener("mouseover", (e) => {
     mouseOver = true;
     if (clicking && mouseOver) {
-      element.classList.add("highlighted");
+      marker(element);
     }
   });
   element.addEventListener("mousedown", (e) => {
     clicking = true;
     if (clicking && mouseOver) {
-      element.classList.add("highlighted");
+      marker(element);
     }
   });
   //events to stop highlighting when !clicking
@@ -85,11 +97,17 @@ function defaultMarker(element) {
     clicking = false;
   });
 }
+function defaultMarker(element) {
+  if(root.style.getPropertyValue("--highlighted-color") !== slategray);
+    root.style.setProperty("--highlighted-color", slategray);
+  element.classList.add("highlighted");
 
-function rainbowMarker() {
-  alert("rainbow!");
 }
 
-function pencilMarker() {
+function rainbowMarker(element) {
+  root;
+}
+
+function pencilMarker(element) {
   alert("pencil!");
 }
