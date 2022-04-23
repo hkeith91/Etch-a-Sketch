@@ -17,7 +17,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  border: 5px solid blue;
+  border: 7px solid blue;
   border-radius: 5px;
   padding: 5px;
   margin: 2.5px;
@@ -41,8 +41,10 @@ body {
   height: var(--grid-container-size);
   max-width: var(--grid-container-size);
   max-height: var(--grid-container-size);
-  border: 5px solid blue;
+  border: 15px solid blue;
+  border-radius: 10px;
   margin: 2.5px;
+  padding: 5px;
 }
 
 .row-container {

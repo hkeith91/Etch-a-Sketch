@@ -15,14 +15,14 @@
         <input type="button" id="clear" onclick="clearCanvas()" value="CLEAR!">
 
         <section id="grid-size-container">
-            <input type="number" id="grid-size" name="grid-size" min="8" max="100">
+            <input type="number" id="grid-size" name="grid-size" min="8" max="100" size="3">
             <label for="grid-size" id="grid-size-label">Grid Size</label>
             <input type="button" id="create-button" onclick="createNewGrid()" value="CREATE!">
         </section>
         <field id="marker-mode">
             <section id="default-mode">
                 <label for="default-mode">Default Mode</label>
-                <input type="radio" id="default-mode" name="marker">
+                <input type="radio" id="default-mode" name="marker" checked="true">
             </section>
             <section id="rb-mode-container">
                 <label for="rb-mode" id="rb-mode-label">Rainbow Mode</label>
