@@ -58,8 +58,9 @@ function createNewGrid() {
 function changeMarker() {
   markerMode.addEventListener("change", function () {
     if (document.getElementById("default-mode").checked) defaultMarker(element);
+    if (document.getElementById("rb-mode").checked) rainbowMarker();
+    if (document.getElementById("pencil-mode").checked) pencilMarker();
   });
-  if (document.getElementById("rainbow-mode")) rainbow - m;
 }
 
 function defaultMarker(element) {
@@ -89,6 +90,6 @@ function rainbowMarker() {
   alert("rainbow!");
 }
 
-function pencilMode() {
+function pencilMarker() {
   alert("pencil!");
 }
