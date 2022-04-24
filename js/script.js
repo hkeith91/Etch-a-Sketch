@@ -2,8 +2,10 @@ const columnsContainer = document.querySelector("#columns-container");
 const clearButton = document.querySelector("#clear-button");
 const gridRangeSlider = document.querySelector("#grid-size");
 const markerMode = document.getElementById("marker-mode");
+const colorPicker = document.getElementById("color-picker");
 const root = document.documentElement;
 const slategray = "#" + 708090;
+let classIdNum = 0;
 let gridSize = 16;
 let mouseOver = false;
 let clicking = false;
@@ -21,12 +23,15 @@ function generateGrid() {
     for (let j = 0; j < gridSize; j++) {
       const gridSquare = document.createElement("div");
       gridSquare.classList.add("grid-square");
+      gridSquare.classList.add(classIdNum.toString());
+      classIdNum++;
       rowContainer.classList.add("row-container");
       rowContainer.append(gridSquare);
 
       addEventListeners(gridSquare);
     }
   }
+  classIdNum = 0;
 }
 
 function clearCanvas() {
@@ -56,10 +61,7 @@ function createNewGrid() {
 }
 
 function marker(element) {
-  if (document.getElementById("default-mode").checked) {
-    defaultMarker(element)
-    boldSelected(document.getElementById("default-mode"));
-  };
+  if (document.getElementById("default-mode").checked) defaultMarker(element);
   if (document.getElementById("rb-mode").checked) rainbowMarker(element);
   if (document.getElementById("pencil-mode").checked) pencilMarker(element);
   if (document.getElementById("rave-mode").checked) raveMarker(element);
