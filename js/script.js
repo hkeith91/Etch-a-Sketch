@@ -56,16 +56,14 @@ function createNewGrid() {
 }
 
 function marker(element) {
-  if (document.getElementById("default-mode").checked) defaultMarker(element);
+  if (document.getElementById("default-mode").checked) {
+    defaultMarker(element)
+    boldSelected(document.getElementById("default-mode"));
+  };
   if (document.getElementById("rb-mode").checked) rainbowMarker(element);
   if (document.getElementById("pencil-mode").checked) pencilMarker(element);
   if (document.getElementById("rave-mode").checked) raveMarker(element);
-  // raveMarker(element);
-  // markerMode.addEventListener("change", function () {
-  //   if (document.getElementById("default-mode").checked) defaultMarker();
-  //   if (document.getElementById("rb-mode").checked) raveMarker();
-  //   if (document.getElementById("pencil-mode").checked) pencilMarker();
-  // });
+  if (document.getElementById("eraser").checked) eraser(element);
 }
 
 function addEventListeners(element) {
@@ -97,8 +95,10 @@ function defaultMarker(element) {
   element.classList.add("highlighted");
 }
 
-function rainbowMarker() {
-  alert("rainbow!");
+function rainbowMarker(element) {
+  // alert("rainbow!");
+  let randomColor = Math.floor(Math.random() * 16777215).toString(16);
+  element.style.setProperty("background-color", "#" + randomColor);
 }
 
 function pencilMarker(element) {
@@ -109,4 +109,14 @@ function raveMarker(element) {
   let randomColor = Math.floor(Math.random() * 16777215).toString(16);
   root.style.setProperty("--highlighted-color", "#" + randomColor);
   element.classList.add("highlighted");
+}
+
+function eraser(element){
+  if (element.classList.contains("highlighted")){
+    element.classList.remove("highlighted");
+  }
+}
+
+function boldSelected(option){
+  option.classList.add("selected");
 }

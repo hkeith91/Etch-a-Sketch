@@ -10,6 +10,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 #settings-container{
@@ -21,6 +22,11 @@ body {
   padding: 5px;
   margin: 2.5px;
   height: var(--grid-container-size);
+  font-size: 24px;
+}
+
+button{
+  font-size: 18px;
 }
 
 #grid-size, #grid-size-label{
@@ -61,4 +67,8 @@ body {
 
 .highlighted {
   background-color: var(--highlighted-color);
+}
+
+.selected{
+  font-style: bold;
 }
