@@ -4,13 +4,13 @@ const gridRangeSlider = document.querySelector("#grid-size");
 const markerMode = document.getElementById("marker-mode");
 const colorPicker = document.getElementById("color-picker");
 const root = document.documentElement;
-const slategray = "#" + 708090;
 let classIdNum = 0;
 let gridSize = 16;
 let mouseOver = false;
 let clicking = false;
 
 generateGrid();
+console.log(document.getElementById('color-picker').value);
 
 function generateGrid() {
   gridRangeSlider.value = gridSize;
@@ -92,8 +92,7 @@ function addEventListeners(element) {
 }
 
 function defaultMarker(element) {
-  if (root.style.getPropertyValue("--highlighted-color") !== slategray);
-  root.style.setProperty("--highlighted-color", slategray);
+  root.style.setProperty("--highlighted-color", colorPicker.value);
   element.classList.add("highlighted");
 }
 
