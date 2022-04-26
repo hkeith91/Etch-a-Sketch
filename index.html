@@ -15,9 +15,13 @@
         <input type="button" id="clear" onclick="clearCanvas()" value="CLEAR!">
 
         <section id="grid-size-container">
-            <input type="number" id="grid-size" name="grid-size" min="8" max="100" size="3">
             <label for="grid-size" id="grid-size-label">Grid Size</label>
+            <input type="number" id="grid-size" name="grid-size" min="8" max="100" size="3">
             <input type="button" id="create-button" onclick="createNewGrid()" value="CREATE!">
+        </section>
+        <section id="grid-cont">
+            <label for="display-grid">Display Grid</label>
+            <input type="radio" id="display-grid" >
         </section>
         <section>
             <div id="m-color-cont">

@@ -6,7 +6,6 @@ const markerColor = document.getElementById("marker-color");
 const bgColor = document.getElementById("bg-color");
 const white = "#ffffff";
 const root = document.documentElement;
-let classIdNum = 0;
 let gridSize = 16;
 let mouseOver = false;
 let clicking = false;
@@ -26,8 +25,6 @@ function generateGrid() {
       const gridSquare = document.createElement("div");
       gridSquare.style.setProperty("background-color", white);
       gridSquare.classList.add("grid-square");
-      // gridSquare.classList.add(classIdNum.toString());
-      // classIdNum++;
       rowContainer.classList.add("row-container");
       rowContainer.append(gridSquare);
 
@@ -66,8 +63,10 @@ function destroyGrid() {
 
 function createNewGrid() {
   gridSize = gridRangeSlider.value;
-  destroyGrid();
-  generateGrid();
+  if(confirm("Clear Canvas and resize?")){
+    destroyGrid();
+    generateGrid();    
+  }
 }
 
 function marker(element) {
@@ -103,11 +102,9 @@ function addEventListeners(element) {
 
 function defaultMarker(element) {
   element.style.setProperty("background-color", markerColor.value);
-  // element.classList.add("highlighted");
 }
 
 function rainbowMarker(element) {
-  // alert("rainbow!");
   let randomColor = Math.floor(Math.random() * 16777215).toString(16);
   element.style.setProperty("background-color", "#" + randomColor);
 }
@@ -123,9 +120,7 @@ function raveMarker(element) {
 }
 
 function eraser(element) {
-  if (element.classList.contains("highlighted")) {
-    element.classList.remove("highlighted");
-  }
+  element.style.setProperty("background-color", white);
 }
 
 function boldSelected(option) {

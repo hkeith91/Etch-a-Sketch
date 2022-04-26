@@ -42,15 +42,16 @@ button{
   display: block;
 }
 
-#bg-color-cont{
+#bg-color-cont, 
+#marker-mode>section,
+#grid-cont,
+#grid-size-container,
+#m-color-cont{
   display: flex;
   justify-content: space-between;
 }
 
-#marker-mode>section{
-  display: flex;
-  justify-content: space-between;
-}
+
 
 #columns-container {
   display: flex;
@@ -73,10 +74,9 @@ button{
 .grid-square {
   flex: 0 1 auto;
   min-width: 0;
-  /* max-height: 44.833px; */
   width: calc(var(--grid-container-size) / var(--grid-size));
   height: calc(var(--grid-container-size) / var(--grid-size));
-  /* border: .5px solid blue; */
+  /* border: 1px solid blue; */
 }
 
 .highlighted {
