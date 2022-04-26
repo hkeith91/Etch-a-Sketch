@@ -3,6 +3,7 @@ const clearButton = document.querySelector("#clear-button");
 const gridRangeSlider = document.querySelector("#grid-size");
 const markerMode = document.getElementById("marker-mode");
 const colorPicker = document.getElementById("color-picker");
+const white = "#ffffff"
 const root = document.documentElement;
 let classIdNum = 0;
 let gridSize = 16;
@@ -37,9 +38,7 @@ function generateGrid() {
 function clearCanvas() {
   let currentCanvas = document.querySelectorAll(".grid-square");
   currentCanvas.forEach((square) => {
-    if (square.classList.contains("highlighted")) {
-      square.classList.remove("highlighted");
-    }
+    square.style.setProperty("background-color", white);
   });
 }
 
@@ -92,8 +91,8 @@ function addEventListeners(element) {
 }
 
 function defaultMarker(element) {
-  root.style.setProperty("--highlighted-color", colorPicker.value);
-  element.classList.add("highlighted");
+  element.style.setProperty("background-color", colorPicker.value);
+  // element.classList.add("highlighted");
 }
 
 function rainbowMarker(element) {
