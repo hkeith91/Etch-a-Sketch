@@ -20,8 +20,16 @@
             <input type="button" id="create-button" onclick="createNewGrid()" value="CREATE!">
         </section>
         <section>
-            <label for="color-picker"></label>
-            <input type="color" id="color-picker" value="#708090">
+            <div id="m-color-cont">
+                <label for="marker-color">Marker Color</label>
+                <input type="color" id="marker-color" value="#708090">
+            </div>
+            <div id="bg-color-cont">
+                <label for="bg-color">BG Color</label>
+                <input type="color" id="bg-color" value="#FFFFFF">
+            </div>
+            <label for="bg-fill"></label>
+            <input type="button" id="bg-fill" onclick="fillCanvas()" value="Fill">
         </section>
         <field id="marker-mode">
             <section id="default-mode-container">

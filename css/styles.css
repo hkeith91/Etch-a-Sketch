@@ -21,8 +21,13 @@ body {
   border-radius: 5px;
   padding: 5px;
   margin: 2.5px;
+  max-width: 250px;
   height: var(--grid-container-size);
   font-size: 24px;
+}
+
+#create-button, #bg-fill{
+  width: 65px;
 }
 
 button{
@@ -33,10 +38,19 @@ button{
   display: inline;
 }
 
-#create-button{
+#create-button, #bg-color-container, #m-color-container{
   display: block;
 }
 
+#bg-color-cont{
+  display: flex;
+  justify-content: space-between;
+}
+
+#marker-mode>section{
+  display: flex;
+  justify-content: space-between;
+}
 
 #columns-container {
   display: flex;

@@ -2,16 +2,17 @@ const columnsContainer = document.querySelector("#columns-container");
 const clearButton = document.querySelector("#clear-button");
 const gridRangeSlider = document.querySelector("#grid-size");
 const markerMode = document.getElementById("marker-mode");
-const colorPicker = document.getElementById("color-picker");
-const white = "#ffffff"
+const markerColor = document.getElementById("marker-color");
+const bgColor = document.getElementById("bg-color");
+const white = "#ffffff";
 const root = document.documentElement;
 let classIdNum = 0;
 let gridSize = 16;
 let mouseOver = false;
 let clicking = false;
+let currentCanvas;
 
 generateGrid();
-console.log(document.getElementById('color-picker').value);
 
 function generateGrid() {
   gridRangeSlider.value = gridSize;
@@ -23,23 +24,33 @@ function generateGrid() {
 
     for (let j = 0; j < gridSize; j++) {
       const gridSquare = document.createElement("div");
+      gridSquare.style.setProperty("background-color", white);
       gridSquare.classList.add("grid-square");
-      gridSquare.classList.add(classIdNum.toString());
-      classIdNum++;
+      // gridSquare.classList.add(classIdNum.toString());
+      // classIdNum++;
       rowContainer.classList.add("row-container");
       rowContainer.append(gridSquare);
 
       addEventListeners(gridSquare);
     }
   }
-  classIdNum = 0;
+  currentCanvas = document.querySelectorAll(".grid-square");
 }
 
 function clearCanvas() {
-  let currentCanvas = document.querySelectorAll(".grid-square");
-  currentCanvas.forEach((square) => {
-    square.style.setProperty("background-color", white);
-  });
+  if (confirm("Clear entire canvas?")) {
+    currentCanvas.forEach((square) => {
+      square.style.setProperty("background-color", white);
+    });
+  }
+}
+
+function fillCanvas() {
+  if (confirm("Fill entire canvas with selected color?")) {
+    currentCanvas.forEach((element) =>
+      element.style.setProperty("background-color", bgColor.value)
+    );
+  }
 }
 
 function destroyGrid() {
@@ -91,7 +102,7 @@ function addEventListeners(element) {
 }
 
 function defaultMarker(element) {
-  element.style.setProperty("background-color", colorPicker.value);
+  element.style.setProperty("background-color", markerColor.value);
   // element.classList.add("highlighted");
 }
 
@@ -111,12 +122,12 @@ function raveMarker(element) {
   element.classList.add("highlighted");
 }
 
-function eraser(element){
-  if (element.classList.contains("highlighted")){
+function eraser(element) {
+  if (element.classList.contains("highlighted")) {
     element.classList.remove("highlighted");
   }
 }
 
-function boldSelected(option){
+function boldSelected(option) {
   option.classList.add("selected");
 }
