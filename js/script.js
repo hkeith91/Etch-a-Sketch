@@ -6,6 +6,7 @@ const markerColor = document.getElementById("marker-color");
 const bgColor = document.getElementById("bg-color");
 const white = "#ffffff";
 const root = document.documentElement;
+const displayGridRadio = document.getElementById("display-grid");
 let gridSize = 16;
 let mouseOver = false;
 let clicking = false;
@@ -98,6 +99,7 @@ function addEventListeners(element) {
   element.addEventListener("mouseup", (e) => {
     clicking = false;
   });
+  displayGridRadio.addEventListener("change", displayGrid(element));
 }
 
 function defaultMarker(element) {
@@ -121,6 +123,11 @@ function raveMarker(element) {
 
 function eraser(element) {
   element.style.setProperty("background-color", white);
+}
+
+function displayGrid(element){
+  if (displayGridRadio.checked) element.classList.add("grid-borders");
+  if (!displayGridRadio.checked) element.classList.remove("grid-borders"); 
 }
 
 function boldSelected(option) {

@@ -76,7 +76,12 @@ button{
   min-width: 0;
   width: calc(var(--grid-container-size) / var(--grid-size));
   height: calc(var(--grid-container-size) / var(--grid-size));
+  max-height: calc(var(--grid-container-size) / var(--grid-size));
   /* border: 1px solid blue; */
+}
+
+.grid-borders{
+  /* border: 1px solid black; */
 }
 
 .highlighted {
